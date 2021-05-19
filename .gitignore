@@ -1,0 +1,6 @@
+.vscode/*
+*.pyc
+core/__pycache__/*
+*.npz
+out/*
+
