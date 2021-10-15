@@ -7,11 +7,10 @@ from core.constants import frame_nums
 from core.constants import h36m_selected_14
 from core.constants import h36m_selected_16
 
-def parse_data(base_path, output_path):
+def parse_data(base_path, output_path, subjects):
 
     assert os.path.exists(base_path)
 
-    subjects = ["S" + str(i) for i in range(1, 9)]
     seqs = ["Seq1", "Seq2"]
 
     data = {}
@@ -49,6 +48,7 @@ def load_annotations(file, frame_count):
     data_2ds = []
 
     for i in range(14):
+        print(annotations['valid_frame'][i, 0])
         data_2ds.append(annotations['annot2'][i, 0][:frame_count, :].reshape((-1, 28, 2)))
         data_3ds.append(annotations['annot3'][i, 0][:frame_count, :].reshape((-1, 28, 3)))
 
